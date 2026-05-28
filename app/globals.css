@@ -1,0 +1,1151 @@
+@import 'tailwindcss';
+@import 'tw-animate-css';
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  /* Light Mode - Arieli Foundation (soft grey tint for readability) */
+  --background: #F5F3EF;
+  --foreground: #1F2937;
+  --card: #FAFAF9;
+  --card-foreground: #1F2937;
+  --popover: #FAFAF9;
+  --popover-foreground: #1F2937;
+  --primary: #F59E0B;
+  --primary-foreground: #FAFAF9;
+  --secondary: #E8E8E6;
+  --secondary-foreground: #1F2937;
+  --muted: #D4CFC5;
+  --muted-foreground: #57534E;
+  --accent: #F59E0B;
+  --accent-foreground: #FAFAF9;
+  --destructive: oklch(0.577 0.245 27.325);
+  --destructive-foreground: #FAFAF9;
+  --border: #E5E4E2;
+  --input: #E8E8E6;
+  --ring: #F59E0B;
+  --radius: 0.75rem;
+  
+  /* Custom Arieli tokens - Light (soft grey tint) */
+  --ivory: #F5F3EF;
+  --dark: #1F2937;
+  --sand: #D4CFC5;
+  --neutral: #E5E4E2;
+  --orange: #F59E0B;
+  --gold: #FBBF24;
+  --surface-elevated: #FAFAF9;
+  --surface-soft: #F0EFED;
+  --glow-color: rgba(245, 158, 11, 0.15);
+  --glow-color-strong: rgba(245, 158, 11, 0.25);
+  
+  /* Animation system tokens */
+  --animation-duration-fast: 200ms;
+  --animation-duration-normal: 350ms;
+  --animation-duration-slow: 500ms;
+  --animation-duration-slower: 700ms;
+  --animation-duration-slowest: 900ms;
+  --animation-easing: cubic-bezier(0.4, 0, 0.2, 1);
+  --animation-easing-smooth: cubic-bezier(0.25, 0.1, 0.25, 1);
+  --animation-easing-premium: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.dark {
+  /* ==========================================================================
+     DARK MODE REFINEMENT SYSTEM - Cinematic Humanitarian Aesthetic
+     ========================================================================== */
+  
+  /* Primary dark background - deep navy-charcoal base */
+  --background: #0A0E14;
+  --foreground: #F8F5F0;
+  
+  /* Card surfaces with warm undertones */
+  --card: #111827;
+  --card-foreground: #F8F5F0;
+  --popover: #131D2B;
+  --popover-foreground: #F8F5F0;
+  
+  /* Accent colors */
+  --primary: #F59E0B;
+  --primary-foreground: #0A0E14;
+  --secondary: #1A2332;
+  --secondary-foreground: #F8F5F0;
+  --muted: #1E293B;
+  --muted-foreground: #A8B5C7;
+  --accent: #FBBF24;
+  --accent-foreground: #0A0E14;
+  --destructive: oklch(0.577 0.245 27.325);
+  --destructive-foreground: #FFFFFF;
+  
+  /* Refined borders with subtle warmth */
+  --border: rgba(255, 255, 255, 0.06);
+  --input: #1A2332;
+  --ring: #F59E0B;
+  
+  /* Custom Arieli tokens - Dark with tonal depth */
+  --ivory: #0A0E14;
+  --dark: #F8F5F0;
+  --sand: #1E293B;
+  --neutral: rgba(255, 255, 255, 0.06);
+  --orange: #F59E0B;
+  --gold: #FBBF24;
+  --surface-elevated: #161F2D;
+  --surface-soft: #111827;
+  
+  /* Refined glow colors - softer diffusion */
+  --glow-color: rgba(245, 158, 11, 0.12);
+  --glow-color-strong: rgba(245, 158, 11, 0.22);
+  --glow-color-soft: rgba(251, 191, 36, 0.08);
+  
+  /* ==========================================================================
+     DARK MODE TONAL LAYERING SYSTEM
+     Section backgrounds alternate for visual rhythm and depth
+     ========================================================================== */
+  --dm-layer-deepest: #080B10;
+  --dm-layer-deep: #0A0E14;
+  --dm-layer-base: #0B1220;
+  --dm-layer-elevated: #111827;
+  --dm-layer-surface: #131D2B;
+  --dm-layer-card: #161F2D;
+  --dm-layer-highlight: #1A2332;
+  
+  /* Atmospheric lighting colors */
+  --dm-ambient-warm: rgba(245, 158, 11, 0.04);
+  --dm-ambient-gold: rgba(251, 191, 36, 0.03);
+  --dm-ambient-soft: rgba(255, 248, 240, 0.02);
+  
+  /* Texture overlays */
+  --dm-grain-opacity: 0.03;
+  --dm-noise-opacity: 0.02;
+}
+
+@theme inline {
+  --font-sans: 'Inter', sans-serif;
+  --font-serif: 'Bebas Neue', sans-serif;
+  --font-mono: 'Geist Mono', monospace;
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  
+  /* Custom colors */
+  --color-ivory: var(--ivory);
+  --color-dark: var(--dark);
+  --color-sand: var(--sand);
+  --color-neutral: var(--neutral);
+  --color-orange: var(--orange);
+  --color-gold: var(--gold);
+  --color-surface-elevated: var(--surface-elevated);
+  --color-surface-soft: var(--surface-soft);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+  
+  /* Respect reduced motion preferences globally */
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
+
+/* =============================================================================
+   DARK MODE TONAL SECTION BACKGROUNDS
+   Creates visual rhythm and cinematic depth through subtle layering
+   ============================================================================= */
+
+/* Section layer classes for alternating depth */
+.dark .dm-section-deepest {
+  background-color: var(--dm-layer-deepest);
+}
+
+.dark .dm-section-deep {
+  background-color: var(--dm-layer-deep);
+}
+
+.dark .dm-section-base {
+  background-color: var(--dm-layer-base);
+}
+
+.dark .dm-section-elevated {
+  background-color: var(--dm-layer-elevated);
+}
+
+.dark .dm-section-surface {
+  background-color: var(--dm-layer-surface);
+}
+
+.dark .dm-section-card {
+  background-color: var(--dm-layer-card);
+}
+
+/* Gradient section backgrounds for smooth transitions */
+.dark .dm-gradient-down {
+  background: linear-gradient(180deg, var(--dm-layer-deep) 0%, var(--dm-layer-base) 100%);
+}
+
+.dark .dm-gradient-up {
+  background: linear-gradient(180deg, var(--dm-layer-base) 0%, var(--dm-layer-deep) 100%);
+}
+
+.dark .dm-gradient-warm {
+  background: linear-gradient(180deg, var(--dm-layer-deep) 0%, #0D1218 50%, var(--dm-layer-base) 100%);
+}
+
+/* =============================================================================
+   ATMOSPHERIC LIGHTING SYSTEM
+   Subtle ambient glow effects for cinematic depth
+   ============================================================================= */
+
+/* Primary ambient glow - warm orange radial */
+.dark .dm-ambient-primary {
+  position: relative;
+}
+
+.dark .dm-ambient-primary::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 80% 60% at 25% 20%, rgba(245, 158, 11, 0.06), transparent 60%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Secondary ambient glow - soft gold */
+.dark .dm-ambient-secondary {
+  position: relative;
+}
+
+.dark .dm-ambient-secondary::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 70% 50% at 75% 80%, rgba(251, 191, 36, 0.04), transparent 55%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Combined ambient lighting */
+.dark .dm-ambient-full {
+  position: relative;
+}
+
+.dark .dm-ambient-full::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: 
+    radial-gradient(ellipse 80% 60% at 20% 25%, rgba(245, 158, 11, 0.05), transparent 55%),
+    radial-gradient(ellipse 60% 50% at 80% 75%, rgba(251, 191, 36, 0.035), transparent 50%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Floating ambient orbs - extremely subtle */
+.dark .dm-orb-warm {
+  position: absolute;
+  width: 400px;
+  height: 400px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(245, 158, 11, 0.06) 0%, transparent 70%);
+  filter: blur(60px);
+  pointer-events: none;
+}
+
+.dark .dm-orb-gold {
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(251, 191, 36, 0.04) 0%, transparent 70%);
+  filter: blur(50px);
+  pointer-events: none;
+}
+
+/* Depth fog effect */
+.dark .dm-depth-fog {
+  position: relative;
+}
+
+.dark .dm-depth-fog::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 200px;
+  background: linear-gradient(to top, var(--dm-layer-deep), transparent);
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* =============================================================================
+   REFINED GLASSMORPHISM SYSTEM
+   Softer, more layered, more premium surfaces
+   ============================================================================= */
+
+.glass-card {
+  background: rgba(250, 250, 249, 0.7);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(229, 228, 226, 0.5);
+}
+
+.dark .glass-card {
+  background: rgba(17, 24, 39, 0.55);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  box-shadow: 
+    0 4px 24px -4px rgba(0, 0, 0, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.04);
+}
+
+.glass-card-strong {
+  background: rgba(250, 250, 249, 0.85);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(229, 228, 226, 0.6);
+}
+
+.dark .glass-card-strong {
+  background: rgba(22, 31, 45, 0.7);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 
+    0 8px 32px -8px rgba(0, 0, 0, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.1);
+}
+
+/* Premium glass panel with inner highlight */
+.dark .glass-panel {
+  background: linear-gradient(
+    135deg,
+    rgba(22, 31, 45, 0.65) 0%,
+    rgba(17, 24, 39, 0.55) 100%
+  );
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  box-shadow: 
+    0 8px 40px -12px rgba(0, 0, 0, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+
+/* Glass section for larger areas */
+.glass-section {
+  background: rgba(245, 243, 239, 0.5);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.dark .glass-section {
+  background: rgba(11, 18, 32, 0.4);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+
+/* Enhanced card hover with refined glassmorphism */
+.glass-card-hover {
+  position: relative;
+  background: rgba(250, 250, 249, 0.6);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(229, 228, 226, 0.4);
+  transition: all var(--animation-duration-normal) var(--animation-easing);
+}
+
+.glass-card-hover:hover {
+  background: rgba(250, 250, 249, 0.85);
+  border-color: rgba(245, 158, 11, 0.3);
+  transform: translateY(-4px);
+  box-shadow: 
+    0 4px 20px -4px var(--glow-color),
+    0 12px 40px -8px var(--glow-color-strong);
+}
+
+.dark .glass-card-hover {
+  background: rgba(17, 24, 39, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  box-shadow: 
+    0 4px 20px -6px rgba(0, 0, 0, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.03);
+}
+
+.dark .glass-card-hover:hover {
+  background: rgba(22, 31, 45, 0.65);
+  border-color: rgba(245, 158, 11, 0.25);
+  box-shadow: 
+    0 8px 40px -8px rgba(0, 0, 0, 0.5),
+    0 0 60px -20px var(--glow-color),
+    inset 0 1px 0 rgba(255, 255, 255, 0.06);
+}
+
+/* =============================================================================
+   TEXTURE SYSTEM
+   Subtle grain and noise for premium depth
+   ============================================================================= */
+
+/* Soft film grain texture */
+.dark .dm-texture-grain {
+  position: relative;
+}
+
+.dark .dm-texture-grain::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+  opacity: var(--dm-grain-opacity);
+  pointer-events: none;
+  z-index: 1;
+  mix-blend-mode: overlay;
+}
+
+/* Cinematic noise overlay */
+.dark .dm-texture-noise {
+  position: relative;
+}
+
+.dark .dm-texture-noise::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='turbulence' baseFrequency='0.7' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  opacity: var(--dm-noise-opacity);
+  pointer-events: none;
+  z-index: 1;
+  mix-blend-mode: soft-light;
+}
+
+/* Combined texture for hero sections */
+.dark .dm-texture-cinematic {
+  position: relative;
+}
+
+.dark .dm-texture-cinematic::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: 
+    url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+  opacity: 0.025;
+  pointer-events: none;
+  z-index: 1;
+  mix-blend-mode: overlay;
+}
+
+/* =============================================================================
+   DARK MODE IMAGE TREATMENT
+   Cinematic, documentary-like image integration
+   ============================================================================= */
+
+.dark .dm-image-cinematic {
+  position: relative;
+  overflow: hidden;
+}
+
+.dark .dm-image-cinematic::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: 
+    linear-gradient(to bottom, rgba(10, 14, 20, 0.1) 0%, transparent 30%, transparent 70%, rgba(10, 14, 20, 0.2) 100%),
+    radial-gradient(ellipse at center, transparent 50%, rgba(10, 14, 20, 0.15) 100%);
+  pointer-events: none;
+}
+
+.dark .dm-image-cinematic img {
+  filter: contrast(1.02) saturate(0.95);
+}
+
+/* Warm shadow gradient for images */
+.dark .dm-image-warm {
+  position: relative;
+}
+
+.dark .dm-image-warm::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(245, 158, 11, 0.03) 0%,
+    transparent 50%,
+    rgba(0, 0, 0, 0.1) 100%
+  );
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* =============================================================================
+   ACCENT COLOR REFINEMENT
+   Strategic, diffused gold/orange accents
+   ============================================================================= */
+
+/* Soft accent glow instead of harsh brightness */
+.dark .accent-glow-soft {
+  box-shadow: 0 0 30px -10px var(--glow-color-soft);
+}
+
+.dark .accent-glow-medium {
+  box-shadow: 0 0 40px -10px var(--glow-color);
+}
+
+.dark .accent-glow-strong {
+  box-shadow: 
+    0 0 20px -5px var(--glow-color),
+    0 0 60px -20px var(--glow-color-strong);
+}
+
+/* Accent divider */
+.dark .accent-divider {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--glow-color), transparent);
+}
+
+.dark .accent-divider-strong {
+  height: 2px;
+  background: linear-gradient(90deg, transparent, rgba(245, 158, 11, 0.5), transparent);
+}
+
+/* =============================================================================
+   GLOBAL ANIMATION SYSTEM
+   ============================================================================= */
+
+/* Smooth scroll */
+html {
+  scroll-behavior: smooth;
+}
+
+/* GPU acceleration hints */
+.will-change-transform {
+  will-change: transform;
+}
+
+.will-change-opacity {
+  will-change: opacity;
+}
+
+.will-change-filter {
+  will-change: filter;
+}
+
+/* =============================================================================
+   CARD HOVER EFFECTS
+   ============================================================================= */
+
+/* Base card hover with glow */
+.card-hover-glow {
+  position: relative;
+  transition: all var(--animation-duration-normal) var(--animation-easing);
+}
+
+.card-hover-glow::before {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(135deg, transparent, transparent);
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask-composite: exclude;
+  opacity: 0;
+  transition: opacity var(--animation-duration-normal) var(--animation-easing);
+  pointer-events: none;
+}
+
+.card-hover-glow:hover::before {
+  background: linear-gradient(135deg, var(--orange), var(--gold));
+  opacity: 0.6;
+}
+
+.card-hover-glow:hover {
+  transform: translateY(-4px);
+  box-shadow: 
+    0 4px 20px -4px var(--glow-color),
+    0 12px 40px -8px var(--glow-color-strong);
+}
+
+/* Dark mode enhanced glow - refined for warmth */
+.dark .card-hover-glow:hover {
+  box-shadow: 
+    0 8px 40px -8px rgba(0, 0, 0, 0.5),
+    0 4px 30px -4px var(--glow-color),
+    0 0 60px -15px var(--glow-color-soft);
+}
+
+.dark .card-hover-glow:hover::before {
+  opacity: 0.5;
+}
+
+/* Subtle lift hover (no glow) */
+.card-hover-lift {
+  transition: transform var(--animation-duration-normal) var(--animation-easing),
+              box-shadow var(--animation-duration-normal) var(--animation-easing);
+}
+
+.card-hover-lift:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 40px -10px rgba(0, 0, 0, 0.15);
+}
+
+.dark .card-hover-lift:hover {
+  box-shadow: 0 12px 48px -12px rgba(0, 0, 0, 0.5);
+}
+
+/* =============================================================================
+   BUTTON EFFECTS
+   ============================================================================= */
+
+/* Global button hover behavior */
+.btn-hover {
+  position: relative;
+  overflow: hidden;
+  transition: all var(--animation-duration-normal) var(--animation-easing);
+}
+
+.btn-hover::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+  transform: translateX(-100%);
+  transition: transform var(--animation-duration-slow) var(--animation-easing);
+}
+
+.btn-hover:hover {
+  transform: translateY(-2px);
+}
+
+.btn-hover:hover::before {
+  transform: translateX(100%);
+}
+
+.btn-hover:active {
+  transform: translateY(0) scale(0.98);
+}
+
+/* Primary button glow - refined for dark mode */
+.btn-primary-glow {
+  transition: all var(--animation-duration-normal) var(--animation-easing);
+}
+
+.btn-primary-glow:hover {
+  box-shadow: 0 4px 20px -4px var(--glow-color-strong);
+}
+
+.dark .btn-primary-glow:hover {
+  box-shadow: 
+    0 4px 24px -4px var(--glow-color),
+    0 0 40px -10px var(--glow-color-soft);
+}
+
+/* =============================================================================
+   IMAGE EFFECTS
+   ============================================================================= */
+
+/* Subtle image hover zoom */
+.img-hover-zoom {
+  overflow: hidden;
+}
+
+.img-hover-zoom img {
+  transition: transform var(--animation-duration-slow) var(--animation-easing);
+}
+
+.img-hover-zoom:hover img {
+  transform: scale(1.05);
+}
+
+/* Subtle image hover with overlay */
+.img-hover-overlay {
+  position: relative;
+  overflow: hidden;
+}
+
+.img-hover-overlay::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.4), transparent);
+  opacity: 0;
+  transition: opacity var(--animation-duration-normal) var(--animation-easing);
+}
+
+.img-hover-overlay:hover::after {
+  opacity: 1;
+}
+
+/* =============================================================================
+   NAVBAR EFFECTS
+   ============================================================================= */
+
+.navbar-blur {
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  transition: all var(--animation-duration-normal) var(--animation-easing);
+}
+
+.navbar-blur.scrolled {
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+
+.dark .navbar-blur {
+  background: rgba(10, 14, 20, 0.7);
+}
+
+.dark .navbar-blur.scrolled {
+  background: rgba(10, 14, 20, 0.85);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* Dropdown animation */
+.dropdown-menu {
+  opacity: 0;
+  transform: translateY(-8px);
+  transition: all var(--animation-duration-normal) var(--animation-easing);
+  pointer-events: none;
+}
+
+.dropdown-menu.open {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+/* =============================================================================
+   KEYFRAME ANIMATIONS
+   ============================================================================= */
+
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes scale-in {
+  from {
+    opacity: 0;
+    transform: scale(0.97);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes slide-in-left {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slide-in-right {
+  from {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes blur-in {
+  from {
+    opacity: 0;
+    filter: blur(8px);
+  }
+  to {
+    opacity: 1;
+    filter: blur(0);
+  }
+}
+
+@keyframes glow-pulse {
+  0%, 100% {
+    box-shadow: 0 0 20px -5px var(--glow-color);
+  }
+  50% {
+    box-shadow: 0 0 30px -5px var(--glow-color-strong);
+  }
+}
+
+@keyframes subtle-float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
+@keyframes gradient-shift {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+@keyframes ambient-breathe {
+  0%, 100% {
+    opacity: 0.04;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.06;
+    transform: scale(1.05);
+  }
+}
+
+/* Animation utility classes */
+.animate-fade-in-up {
+  animation: fade-in-up var(--animation-duration-slow) var(--animation-easing) forwards;
+}
+
+.animate-fade-in {
+  animation: fade-in var(--animation-duration-slow) var(--animation-easing) forwards;
+}
+
+.animate-scale-in {
+  animation: scale-in var(--animation-duration-slow) var(--animation-easing) forwards;
+}
+
+.animate-slide-in-left {
+  animation: slide-in-left var(--animation-duration-slow) var(--animation-easing) forwards;
+}
+
+.animate-slide-in-right {
+  animation: slide-in-right var(--animation-duration-slow) var(--animation-easing) forwards;
+}
+
+.animate-blur-in {
+  animation: blur-in var(--animation-duration-slower) var(--animation-easing-smooth) forwards;
+}
+
+.animate-glow-pulse {
+  animation: glow-pulse 3s ease-in-out infinite;
+}
+
+.animate-subtle-float {
+  animation: subtle-float 4s ease-in-out infinite;
+}
+
+.animate-ambient-breathe {
+  animation: ambient-breathe 8s ease-in-out infinite;
+}
+
+/* Animation delays */
+.animation-delay-100 { animation-delay: 100ms; }
+.animation-delay-200 { animation-delay: 200ms; }
+.animation-delay-300 { animation-delay: 300ms; }
+.animation-delay-400 { animation-delay: 400ms; }
+.animation-delay-500 { animation-delay: 500ms; }
+.animation-delay-600 { animation-delay: 600ms; }
+.animation-delay-700 { animation-delay: 700ms; }
+.animation-delay-800 { animation-delay: 800ms; }
+
+/* =============================================================================
+   SCROLL-TRIGGERED ANIMATION STATES
+   ============================================================================= */
+
+.scroll-animate {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all var(--animation-duration-slow) var(--animation-easing);
+}
+
+.scroll-animate.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.scroll-animate-scale {
+  opacity: 0;
+  transform: scale(0.97);
+  transition: all var(--animation-duration-slow) var(--animation-easing);
+}
+
+.scroll-animate-scale.is-visible {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.scroll-animate-blur {
+  opacity: 0;
+  filter: blur(8px);
+  transition: all var(--animation-duration-slower) var(--animation-easing-smooth);
+}
+
+.scroll-animate-blur.is-visible {
+  opacity: 1;
+  filter: blur(0);
+}
+
+.scroll-animate-left {
+  opacity: 0;
+  transform: translateX(-30px);
+  transition: all var(--animation-duration-slow) var(--animation-easing);
+}
+
+.scroll-animate-left.is-visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.scroll-animate-right {
+  opacity: 0;
+  transform: translateX(30px);
+  transition: all var(--animation-duration-slow) var(--animation-easing);
+}
+
+.scroll-animate-right.is-visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* =============================================================================
+   STAGGERED ANIMATION DELAYS
+   ============================================================================= */
+
+.stagger-1 { transition-delay: 50ms; }
+.stagger-2 { transition-delay: 100ms; }
+.stagger-3 { transition-delay: 150ms; }
+.stagger-4 { transition-delay: 200ms; }
+.stagger-5 { transition-delay: 250ms; }
+.stagger-6 { transition-delay: 300ms; }
+.stagger-7 { transition-delay: 350ms; }
+.stagger-8 { transition-delay: 400ms; }
+.stagger-9 { transition-delay: 450ms; }
+.stagger-10 { transition-delay: 500ms; }
+
+/* =============================================================================
+   AMBIENT BACKGROUNDS - Refined for Dark Mode
+   ============================================================================= */
+
+.dark .ambient-glow-orange {
+  background: radial-gradient(circle at 30% 20%, rgba(245, 158, 11, 0.05), transparent 55%);
+}
+
+.dark .ambient-glow-gold {
+  background: radial-gradient(circle at 70% 80%, rgba(251, 191, 36, 0.035), transparent 50%);
+}
+
+.dark .ambient-glow-combined {
+  background: 
+    radial-gradient(ellipse 80% 50% at 20% 30%, rgba(245, 158, 11, 0.04), transparent 50%),
+    radial-gradient(ellipse 60% 40% at 80% 70%, rgba(251, 191, 36, 0.025), transparent 45%);
+}
+
+/* Premium placeholder styling */
+.placeholder-media {
+  background: linear-gradient(135deg, #E5E7EB 0%, #D6C7B0 50%, #E5E7EB 100%);
+  background-size: 200% 200%;
+  animation: gradient-shift 8s ease infinite;
+}
+
+.dark .placeholder-media {
+  background: linear-gradient(135deg, #1A2433 0%, #1E293B 50%, #1A2433 100%);
+}
+
+/* =============================================================================
+   THEME TRANSITION
+   ============================================================================= */
+
+/* Smooth theme switching */
+html.transitioning,
+html.transitioning * {
+  transition: background-color var(--animation-duration-normal) var(--animation-easing),
+              border-color var(--animation-duration-normal) var(--animation-easing),
+              color var(--animation-duration-normal) var(--animation-easing) !important;
+}
+
+/* =============================================================================
+   ICON ANIMATIONS
+   ============================================================================= */
+
+.icon-hover-lift {
+  transition: transform var(--animation-duration-normal) var(--animation-easing);
+}
+
+.icon-hover-lift:hover,
+.group:hover .icon-hover-lift {
+  transform: translateY(-2px);
+}
+
+.icon-hover-glow {
+  transition: all var(--animation-duration-normal) var(--animation-easing);
+}
+
+.icon-hover-glow:hover,
+.group:hover .icon-hover-glow {
+  filter: drop-shadow(0 0 8px var(--glow-color));
+}
+
+/* =============================================================================
+   LINK UNDERLINE ANIMATION
+   ============================================================================= */
+
+.link-underline {
+  position: relative;
+}
+
+.link-underline::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--orange);
+  transition: width var(--animation-duration-normal) var(--animation-easing);
+}
+
+.link-underline:hover::after {
+  width: 100%;
+}
+
+/* =============================================================================
+   ARROW ANIMATIONS
+   ============================================================================= */
+
+.arrow-hover {
+  transition: transform var(--animation-duration-normal) var(--animation-easing);
+}
+
+.group:hover .arrow-hover,
+.arrow-hover:hover {
+  transform: translateX(4px);
+}
+
+.arrow-hover-diagonal {
+  transition: transform var(--animation-duration-normal) var(--animation-easing);
+}
+
+.group:hover .arrow-hover-diagonal,
+.arrow-hover-diagonal:hover {
+  transform: translate(2px, -2px);
+}
+
+/* =============================================================================
+   SECTION-SPECIFIC DARK MODE STYLES
+   Creates intentional storytelling flow through visual pacing
+   ============================================================================= */
+
+/* Hero - Cinematic and atmospheric */
+.dark .section-hero {
+  background: var(--dm-layer-deepest);
+}
+
+/* Impact - Clean with subtle warmth */
+.dark .section-impact {
+  background: var(--dm-layer-base);
+}
+
+/* Initiatives - Structured depth */
+.dark .section-initiatives {
+  background: var(--dm-layer-deep);
+}
+
+/* Stats - Futuristic premium */
+.dark .section-stats {
+  background: linear-gradient(180deg, var(--dm-layer-deep) 0%, var(--dm-layer-deepest) 100%);
+}
+
+/* Outreach - Emotionally warm */
+.dark .section-outreach {
+  background: var(--dm-layer-elevated);
+}
+
+/* Footer - Rich deep charcoal */
+.dark .section-footer {
+  background: var(--dm-layer-deepest);
+}
+
+/* =============================================================================
+   SCROLL EXPERIENCE ENHANCEMENTS
+   Smooth section transitions and layered reveals
+   ============================================================================= */
+
+/* Section fade boundary for smooth transitions */
+.dark .section-fade-top {
+  position: relative;
+}
+
+.dark .section-fade-top::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 80px;
+  background: linear-gradient(to bottom, var(--dm-layer-deep), transparent);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.dark .section-fade-bottom {
+  position: relative;
+}
+
+.dark .section-fade-bottom::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 80px;
+  background: linear-gradient(to top, var(--dm-layer-deep), transparent);
+  pointer-events: none;
+  z-index: 1;
+}
