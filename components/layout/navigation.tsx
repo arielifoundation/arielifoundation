@@ -49,8 +49,15 @@ const navLinks = [
       { name: 'Partners & Collaborators', href: '/about#partners' },
     ]
   },
-  { name: 'Initiatives', href: '/initiatives' },
-  { name: 'Outreach Stories', href: '/#outreach' },
+  { 
+    name: 'Initiatives', 
+    href: '/initiatives',
+    hasDropdown: true,
+    dropdownItems: [
+      { name: 'Our Initiatives', href: '/initiatives' },
+      { name: 'Our Stories', href: '/initiatives/stories' },
+    ]
+  },
   { name: 'Reports', href: '/#reports' },
   { name: 'Partners', href: '/#partners' },
   { name: 'Contact', href: '/#contact' },
@@ -59,11 +66,12 @@ const navLinks = [
 export function Navigation() {
   const [isScrolled, setIsScrolled] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
-  const [isAboutDropdownOpen, setIsAboutDropdownOpen] = useState(false)
-  const [isMobileAboutOpen, setIsMobileAboutOpen] = useState(false)
+  const [openDropdown, setOpenDropdown] = useState<string | null>(null)
+  const [openMobileDropdown, setOpenMobileDropdown] = useState<string | null>(null)
   const [mounted, setMounted] = useState(false)
   const { theme, setTheme } = useTheme()
-  const dropdownRef = useRef<HTMLDivElement>(null)
+  const aboutRef = useRef<HTMLDivElement>(null)
+  const initiativesRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
     setMounted(true)
@@ -80,8 +88,11 @@ export function Navigation() {
   // Close dropdown when clicking outside
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
-      if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
-        setIsAboutDropdownOpen(false)
+      if (
+        (aboutRef.current && !aboutRef.current.contains(event.target as Node)) &&
+        (initiativesRef.current && !initiativesRef.current.contains(event.target as Node))
+      ) {
+        setOpenDropdown(null)
       }
     }
     document.addEventListener('mousedown', handleClickOutside)
@@ -115,7 +126,7 @@ export function Navigation() {
           <div className="hidden lg:flex items-center gap-8">
             {navLinks.map((link) => (
               link.hasDropdown ? (
-                <div key={link.name} className="relative" ref={dropdownRef}>
+                <div key={link.name} className="relative" ref={link.name === 'About' ? aboutRef : initiativesRef}>
                   <div className="flex items-center">
                     <Link
                       href={link.href}
@@ -127,25 +138,25 @@ export function Navigation() {
                       {link.name}
                     </Link>
                     <button
-                      onClick={() => setIsAboutDropdownOpen(!isAboutDropdownOpen)}
+                      onClick={() => setOpenDropdown(openDropdown === link.name ? null : link.name)}
                       className={cn(
                         "ml-1 p-1 rounded-md transition-all duration-200 hover:bg-white/10",
                         isScrolled ? "text-white" : "text-white/90"
                       )}
-                      aria-label="Toggle About menu"
+                      aria-label={`Toggle ${link.name} menu`}
                     >
                       <ChevronDownIcon 
                         size={14} 
                         className={cn(
                           "transition-transform duration-200",
-                          isAboutDropdownOpen && "rotate-180"
+                          openDropdown === link.name && "rotate-180"
                         )}
                       />
                     </button>
                   </div>
                   
                   {/* Dropdown Menu */}
-                  {isAboutDropdownOpen && (
+                  {openDropdown === link.name && (
                     <div className="absolute top-full left-0 mt-2 w-56 origin-top-left animate-in fade-in-0 zoom-in-95 slide-in-from-top-2 duration-200">
                       <div className="rounded-xl bg-card dark:bg-[#111827] shadow-xl shadow-black/10 dark:shadow-black/30 border border-border dark:border-white/10 overflow-hidden backdrop-blur-xl">
                         <div className="py-2">
@@ -153,7 +164,7 @@ export function Navigation() {
                             <Link
                               key={item.name}
                               href={item.href}
-                              onClick={() => setIsAboutDropdownOpen(false)}
+                              onClick={() => setOpenDropdown(null)}
                               className="block px-4 py-2.5 text-sm text-foreground/80 hover:text-orange hover:bg-secondary/50 dark:hover:bg-white/5 transition-colors"
                             >
                               {item.name}
@@ -259,19 +270,19 @@ export function Navigation() {
                         {link.name}
                       </Link>
                       <button
-                        onClick={() => setIsMobileAboutOpen(!isMobileAboutOpen)}
+                        onClick={() => setOpenMobileDropdown(openMobileDropdown === link.name ? null : link.name)}
                         className="p-2 rounded-lg hover:bg-secondary transition-colors"
                       >
                         <ChevronDownIcon 
                           size={18} 
                           className={cn(
                             "text-muted-foreground transition-transform duration-200",
-                            isMobileAboutOpen && "rotate-180"
+                            openMobileDropdown === link.name && "rotate-180"
                           )}
                         />
                       </button>
                     </div>
-                    {isMobileAboutOpen && (
+                    {openMobileDropdown === link.name && (
                       <div className="pl-4 pb-2 space-y-1 border-l-2 border-orange/30 ml-2">
                         {link.dropdownItems?.map((item) => (
                           <Link
@@ -279,7 +290,7 @@ export function Navigation() {
                             href={item.href}
                             onClick={() => {
                               setIsMobileMenuOpen(false)
-                              setIsMobileAboutOpen(false)
+                              setOpenMobileDropdown(null)
                             }}
                             className="block py-2 text-sm text-muted-foreground hover:text-orange transition-colors"
                           >

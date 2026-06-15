@@ -112,7 +112,7 @@ export function InitiativesGridSection() {
             return (
               <a
                 key={initiative.id}
-                href={`#${initiative.id}`}
+                href={`/initiatives/stories#${initiative.id}`}
                 className={`glass-card card-hover-glow group relative rounded-2xl overflow-hidden transition-all duration-500 ${
                   gridVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
                 }`}
