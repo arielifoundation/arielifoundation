@@ -1,6 +1,7 @@
 'use client'
 
 import { useState } from 'react'
+import { supabase } from '@/lib/supabase'
 
 const NIGERIAN_STATES = [
   "Abia", "Adamawa", "Akwa Ibom", "Anambra", "Bauchi", "Bayelsa", "Benue", "Borno", 
@@ -131,10 +132,27 @@ export function WaitlistForm() {
     }
 
     setIsSubmitting(true)
-    
-    // Simulate premium submission experience
-    await new Promise((resolve) => setTimeout(resolve, 1500))
-    
+
+    const { error } = await supabase
+      .from("waitlist")
+      .insert([
+        {
+          full_name: formData.name,
+          email: formData.email,
+          phone_number: formData.phone,
+          state: formData.state,
+          expected_delivery_date:
+            formData.expectedDeliveryDate || null,
+        },
+      ])
+
+    if (error) {
+      console.error(error)
+      alert("Something went wrong")
+      setIsSubmitting(false)
+      return
+    }
+
     setIsSubmitting(false)
     setIsSubmitted(true)
   }
