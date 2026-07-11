@@ -133,6 +133,13 @@ export function WaitlistForm() {
 
     setIsSubmitting(true)
 
+    // Check if Supabase env variables are configured (not build-time placeholders)
+    if (!process.env.NEXT_PUBLIC_SUPABASE_URL || process.env.NEXT_PUBLIC_SUPABASE_URL.includes("placeholder-url-for-build")) {
+      alert("Configuration Error: Please verify that NEXT_PUBLIC_SUPABASE_URL and NEXT_PUBLIC_SUPABASE_ANON_KEY are added to your Vercel Project Settings Environment Variables.")
+      setIsSubmitting(false)
+      return
+    }
+
     const { error } = await supabase
       .from("waitlist")
       .insert([
@@ -147,8 +154,8 @@ export function WaitlistForm() {
       ])
 
     if (error) {
-      console.error(error)
-      alert("Something went wrong")
+      console.error("Waitlist registration failed:", error)
+      alert(`Something went wrong: ${error.message || 'Unknown database error'}`)
       setIsSubmitting(false)
       return
     }
