@@ -181,7 +181,7 @@ export function WaitlistForm() {
           </h3>
           
           <p className="text-muted-foreground text-sm sm:text-base mb-6 max-w-md mx-auto">
-            Thank you for joining us. ArieliCare is dedicated to reducing care delays, catching risks early, and saving lives across Nigeria. We will keep you updated on our launch.
+            Thank you for joining us. Arieli is dedicated to reducing care delays, catching risks early, and saving lives. We will keep you updated on our launch.
           </p>
 
           <div className="border-t border-border dark:border-white/10 my-8 pt-8 text-left">
@@ -201,7 +201,7 @@ export function WaitlistForm() {
                   <CheckIcon className="w-3.5 h-3.5 text-white" />
                 </div>
                 <span className="text-foreground/80 text-sm line-through font-medium">
-                  Joined the ArieliCare Waitlist
+                  Joined the Arieli Waitlist
                 </span>
               </div>
 
@@ -306,7 +306,7 @@ export function WaitlistForm() {
       <div className="absolute -right-24 -top-24 w-48 h-48 bg-orange/5 rounded-full blur-3xl pointer-events-none" />
 
       <h3 className="font-[var(--font-bebas)] text-2xl sm:text-3xl text-foreground tracking-wide mb-6">
-        Sign Up for ArieliCare
+        Sign Up for Arieli
       </h3>
 
       <form onSubmit={handleSubmit} className="space-y-5">

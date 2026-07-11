@@ -57,7 +57,7 @@ const initiatives = [
   {
     id: 'women-empowerment',
     title: 'Women Empowerment & Gender Equality',
-    description: 'Empowering women and girls through education, healthcare access, and advocating for gender equality in communities across Nigeria.',
+    description: 'We empower women and girls by providing education, healthcare access, and by advocating for gender equality in Nigerian communities. Additionally, we address gender-based violence by raising awareness, preventing harm, supporting survivors, and fostering safer, more inclusive spaces.',
     Icon: UsersIcon,
     image: '/images/outreach/school-children.jpg',
   },

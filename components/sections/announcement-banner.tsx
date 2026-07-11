@@ -7,7 +7,7 @@ export function AnnouncementBanner() {
     <div className="absolute top-24 left-0 right-0 z-30 w-full bg-black/40 backdrop-blur-md border-b border-orange/20 py-2.5 px-4 transition-all duration-300">
       <div className="max-w-7xl mx-auto flex items-center justify-center text-center">
         <p className="text-white/90 text-xs sm:text-sm font-medium tracking-wide flex items-center justify-center gap-1.5 flex-wrap">
-          <span>🚀 ArieliCare is launching soon —</span>
+          <span>🚀 Arieli is launching soon —</span>
           <Link
             href="/initiatives/arielicare"
             className="inline-flex items-center gap-1 text-orange font-semibold hover:text-gold transition-colors duration-200 underline underline-offset-4 decoration-orange/40 hover:decoration-gold/60 group"

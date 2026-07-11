@@ -5,8 +5,8 @@ import { Footer } from '@/components/layout/footer'
 import { WaitlistForm } from '@/components/sections/waitlist-form'
 
 export const metadata: Metadata = {
-  title: 'ArieliCare Waitlist | Arieli Foundation',
-  description: 'Join the ArieliCare waitlist. ArieliCare is a national maternal health platform connecting pregnant women and new mothers to fast, professional care across Nigeria.',
+  title: 'Arieli Waitlist | Arieli Foundation',
+  description: 'Join the Arieli waitlist. Arieli is an AI powered maternal health platform that helps pregnant women and new mothers access timely care through WhatsApp, Telegram, and a toll free voice hotline. It connects women with healthcare providers while enabling health workers to coordinate and track care through a centralized dashboard. Built for underserved communities, Arieli makes maternal healthcare more accessible, identifies risks early, and helps ensure every mother receives timely support throughout pregnancy and after childbirth.',
 }
 
 // Custom SVG Icons to avoid Lucide-React library import
@@ -92,22 +92,22 @@ export default function ArieliCareWaitlistPage() {
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-orange/10 border border-orange/25">
               <span className="w-2 h-2 rounded-full bg-orange animate-pulse" />
               <span className="text-orange text-xs sm:text-sm font-semibold tracking-wide uppercase">
-                ArieliCare maternal initiative
+                Arieli maternal initiative
               </span>
             </div>
 
             {/* Headline */}
             <h1 className="font-[var(--font-bebas)] text-5xl sm:text-6xl md:text-7xl text-foreground leading-[0.95] tracking-wide">
-              Join the <span className="text-orange">ArieliCare</span> Waitlist
+              Join the <span className="text-orange">Arieli</span> Waitlist
             </h1>
 
             {/* Description */}
             <div className="space-y-4">
               <p className="text-foreground/85 text-lg leading-relaxed font-medium">
-                ArieliCare is a national maternal health platform connecting pregnant women and new mothers to fast, professional care across Nigeria. 
+                Arieli is an AI powered maternal health platform that helps pregnant women and new mothers access timely care through WhatsApp, Telegram, and a toll free voice hotline.
               </p>
               <p className="text-muted-foreground text-base leading-relaxed">
-                We provide timely guidance, clinical triage, and direct connections to health workers via WhatsApp, a toll-free hotline, and a health coordination dashboard. Our goal is to reduce delays in care, catch risks early, and save lives.
+                It connects women with healthcare providers while enabling health workers to coordinate and track care through a centralized dashboard. Built for underserved communities, Arieli makes maternal healthcare more accessible, identifies risks early, and helps ensure every mother receives timely support throughout pregnancy and after childbirth.
               </p>
             </div>
 
@@ -122,7 +122,7 @@ export default function ArieliCareWaitlistPage() {
             {/* Platform Feature Cards (3 Pillars) */}
             <div className="space-y-4 pt-4">
               <h3 className="font-[var(--font-bebas)] text-2xl tracking-wide text-foreground">
-                How ArieliCare Works
+                How Arieli Works
               </h3>
 
               <div className="grid sm:grid-cols-3 gap-5">

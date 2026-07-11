@@ -88,7 +88,7 @@ const featuredInitiatives = [
     id: 'women-empowerment',
     title: 'Women Empowerment & Gender Equality',
     subtitle: 'Building Stronger Communities',
-    description: 'We believe that empowered women create thriving communities. Our programs focus on education, economic opportunity, and advocacy to help women and girls reach their full potential while championing gender equality.',
+    description: 'We empower women and girls by providing education, healthcare access, and by advocating for gender equality in Nigerian communities.\n\nAdditionally, we address gender-based violence by raising awareness, preventing harm, supporting survivors, and fostering safer, more inclusive spaces.',
     Icon: UsersIcon,
     image: '/images/outreach/school-children.jpg',
     impactPoints: [
@@ -224,9 +224,11 @@ function InitiativeStoryBlock({ initiative, index }: { initiative: typeof featur
           </h3>
 
           {/* Description */}
-          <p className="text-muted-foreground text-base lg:text-lg leading-relaxed mb-8">
-            {initiative.description}
-          </p>
+          <div className="text-muted-foreground text-base lg:text-lg leading-relaxed mb-8 space-y-4">
+            {initiative.description.split('\n\n').map((paragraph, pIndex) => (
+              <p key={pIndex}>{paragraph}</p>
+            ))}
+          </div>
 
           {/* Impact points */}
           <ul className="space-y-3 mb-8">
