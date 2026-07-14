@@ -71,7 +71,7 @@ export function OutreachSection() {
 
             {/* Floating element */}
             <div className="absolute -top-4 -right-4 bg-gradient-to-br from-orange to-gold rounded-xl p-3 lg:p-4 shadow-xl shadow-orange/20">
-              <div className="font-[var(--font-bebas)] text-xl lg:text-2xl text-white">10+</div>
+              <div className="font-[var(--font-bebas)] text-xl lg:text-2xl text-white">60+</div>
               <div className="text-xs text-white/80">Campaigns</div>
             </div>
           </div>

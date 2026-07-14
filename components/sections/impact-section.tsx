@@ -36,13 +36,13 @@ const impactMetrics = [
     Icon: HeartIcon,
   },
   {
-    value: 10,
+    value: 60,
     suffix: '+',
-    label: 'Outreach Campaigns Conducted Across Communities',
+    label: 'Outreach Campaigns Conducted',
     Icon: UsersIcon,
   },
   {
-    value: 7,
+    value: 50,
     suffix: '+',
     label: 'Communities Reached Across Nigeria',
     Icon: MapPinIcon,

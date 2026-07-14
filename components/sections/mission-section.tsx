@@ -131,19 +131,19 @@ export function MissionSection() {
                       text-transparent bg-clip-text
                       bg-gradient-to-br from-amber-500 via-orange-400 to-amber-600
                       dark:from-amber-400 dark:via-orange-300 dark:to-amber-500">
-                      2020
+                      2023
                     </span>
                   </div>
 
                   {/* Supporting line */}
                   <p className="text-xs sm:text-[13px] text-foreground/70 dark:text-white/50 leading-snug font-light">
-                    Making Impact Across Communities Since 2020
+                    Making Impact Across Communities Since 2023
                   </p>
                 </div>
 
                 {/* Right metric — desktop only */}
                 <div className="hidden sm:flex flex-col items-end shrink-0 gap-0.5">
-                  <span className="font-[var(--font-bebas)] text-2xl text-amber-500 dark:text-amber-400 leading-none">5+</span>
+                  <span className="font-[var(--font-bebas)] text-2xl text-amber-500 dark:text-amber-400 leading-none">3+</span>
                   <span className="text-[10px] text-muted-foreground leading-tight text-right">Years of<br />Outreach &amp; Advocacy</span>
                 </div>
 

@@ -109,7 +109,7 @@ export function HeroSection() {
       <div className="absolute bottom-1/3 right-8 lg:right-16 hidden lg:block animate-fade-in animation-delay-600">
         <div className="card-hover-glow bg-white/10 backdrop-blur-sm rounded-xl p-4 border border-white/10">
           <div className="text-orange font-[var(--font-bebas)] text-3xl">
-            7+
+            50+
           </div>
           <div className="text-white/70 text-xs">Communities Reached</div>
         </div>

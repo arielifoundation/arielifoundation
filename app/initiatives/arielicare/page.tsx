@@ -115,7 +115,7 @@ export default function ArieliCareWaitlistPage() {
             <div className="p-4 sm:p-5 rounded-xl bg-secondary/35 dark:bg-white/[0.02] border border-border dark:border-white/5">
               <p className="text-foreground/90 text-sm sm:text-base font-semibold flex gap-2">
                 <HeartIcon className="w-5 h-5 text-orange shrink-0 mt-0.5" />
-                <span>Sign up now to be the first to know when we launch and to help shape the future of maternal care in Nigeria.</span>
+                <span>Sign up now to be the first to know when we launch and to help shape the future of maternal care.</span>
               </p>
             </div>
 

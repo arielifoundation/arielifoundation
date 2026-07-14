@@ -142,8 +142,8 @@ const featuredInitiatives = [
       'Mobile health clinics',
     ],
     stats: [
-      { value: '7+', label: 'Communities Reached' },
-      { value: '10+', label: 'Outreach Events' },
+      { value: '50+', label: 'Communities Reached' },
+      { value: '60+', label: 'Outreach Events' },
     ],
     quote: {
       text: 'The foundation brought healthcare to our doorstep. They truly care about our community.',
