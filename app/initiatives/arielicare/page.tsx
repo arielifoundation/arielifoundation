@@ -23,6 +23,13 @@ const MessageSquareIcon = ({ className = "w-5 h-5" }: { className?: string }) =>
   </svg>
 )
 
+const SendIcon = ({ className = "w-5 h-5" }: { className?: string }) => (
+  <svg className={className} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round">
+    <line x1="22" y1="2" x2="11" y2="13" />
+    <polygon points="22 2 15 22 11 13 2 9 22 2" />
+  </svg>
+)
+
 const PhoneCallIcon = ({ className = "w-5 h-5" }: { className?: string }) => (
   <svg className={className} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round">
     <path d="M15.05 5A5 5 0 0 1 19 8.95M15.05 1A9 9 0 0 1 23 8.94m-1 7.98v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
@@ -125,7 +132,7 @@ export default function ArieliCareWaitlistPage() {
                 How Arieli Works
               </h3>
 
-              <div className="grid sm:grid-cols-3 gap-5">
+              <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
                 {/* Pillar 1: WhatsApp */}
                 <div className="p-5 rounded-xl bg-card border border-border dark:border-white/5 hover:border-orange/30 dark:hover:border-orange/20 transition-all duration-300 hover:shadow-lg shadow-black/5 hover:-translate-y-0.5">
                   <div className="w-10 h-10 rounded-lg bg-orange/10 flex items-center justify-center mb-4 text-orange">
@@ -137,7 +144,18 @@ export default function ArieliCareWaitlistPage() {
                   </p>
                 </div>
 
-                {/* Pillar 2: Toll-Free */}
+                {/* Pillar 2: Telegram */}
+                <div className="p-5 rounded-xl bg-card border border-border dark:border-white/5 hover:border-orange/30 dark:hover:border-orange/20 transition-all duration-300 hover:shadow-lg shadow-black/5 hover:-translate-y-0.5">
+                  <div className="w-10 h-10 rounded-lg bg-orange/10 flex items-center justify-center mb-4 text-orange">
+                    <SendIcon className="w-5 h-5" />
+                  </div>
+                  <h4 className="text-foreground font-bold text-sm mb-1.5">Telegram Triage</h4>
+                  <p className="text-muted-foreground text-xs leading-relaxed">
+                    Accessible maternal care support, resources, and interactive guidance directly on Telegram.
+                  </p>
+                </div>
+
+                {/* Pillar 3: Toll-Free */}
                 <div className="p-5 rounded-xl bg-card border border-border dark:border-white/5 hover:border-orange/30 dark:hover:border-orange/20 transition-all duration-300 hover:shadow-lg shadow-black/5 hover:-translate-y-0.5">
                   <div className="w-10 h-10 rounded-lg bg-orange/10 flex items-center justify-center mb-4 text-orange">
                     <PhoneCallIcon className="w-5 h-5" />
@@ -148,7 +166,7 @@ export default function ArieliCareWaitlistPage() {
                   </p>
                 </div>
 
-                {/* Pillar 3: Dashboard */}
+                {/* Pillar 4: Dashboard */}
                 <div className="p-5 rounded-xl bg-card border border-border dark:border-white/5 hover:border-orange/30 dark:hover:border-orange/20 transition-all duration-300 hover:shadow-lg shadow-black/5 hover:-translate-y-0.5">
                   <div className="w-10 h-10 rounded-lg bg-orange/10 flex items-center justify-center mb-4 text-orange">
                     <LayoutDashboardIcon className="w-5 h-5" />
