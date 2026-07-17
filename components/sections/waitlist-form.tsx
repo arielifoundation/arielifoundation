@@ -107,9 +107,7 @@ export function WaitlistForm() {
     if (!formData.name.trim()) {
       newErrors.name = 'Full Name is required'
     }
-    if (!formData.email.trim()) {
-      newErrors.email = 'Email Address is required'
-    } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
+    if (formData.email.trim() && !/\S+@\S+\.\S+/.test(formData.email)) {
       newErrors.email = 'Please enter a valid email address'
     }
     if (!formData.phone.trim()) {
@@ -145,7 +143,7 @@ export function WaitlistForm() {
       .insert([
         {
           full_name: formData.name,
-          email: formData.email,
+          email: formData.email.trim() || null,
           phone_number: formData.phone,
           state: formData.state,
           expected_delivery_date:
@@ -344,7 +342,7 @@ export function WaitlistForm() {
         {/* Email Address */}
         <div>
           <label htmlFor="email" className="block text-foreground/80 text-sm font-semibold mb-2">
-            Email Address <span className="text-orange">*</span>
+            Email Address <span className="text-muted-foreground text-xs font-normal">(Optional)</span>
           </label>
           <div className="relative">
             <span className="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-muted-foreground/60">
