@@ -111,10 +111,10 @@ export default function ArieliCareWaitlistPage() {
             {/* Description */}
             <div className="space-y-4">
               <p className="text-foreground/85 text-lg leading-relaxed font-medium">
-                Arieli is an AI powered maternal health platform that helps pregnant women and new mothers access timely care through WhatsApp, Telegram, and a toll free voice hotline.
+                Arieli is an AI-enabled, community-based maternal health coordination and early intervention system that helps identify pregnancy risks sooner, connects women to trained health workers faster, and supports continuous care during pregnancy and after childbirth.
               </p>
               <p className="text-muted-foreground text-base leading-relaxed">
-                It connects women with healthcare providers while enabling health workers to coordinate and track care through a centralized dashboard. Built for underserved communities, Arieli makes maternal healthcare more accessible, identifies risks early, and helps ensure every mother receives timely support throughout pregnancy and after childbirth.
+                Every day, women in underserved communities die from preventable pregnancy and childbirth complications because they cannot access timely care. Arieli helps reduce those preventable deaths by making it easier for women to reach trained health workers before complications become emergencies.
               </p>
             </div>
 
