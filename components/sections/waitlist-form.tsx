@@ -143,7 +143,7 @@ export function WaitlistForm() {
       .insert([
         {
           full_name: formData.name,
-          email: formData.email.trim() || null,
+          email: formData.email.trim(),
           phone_number: formData.phone,
           state: formData.state,
           expected_delivery_date:

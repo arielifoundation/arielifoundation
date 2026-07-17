@@ -99,7 +99,7 @@ export default function ArieliCareWaitlistPage() {
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-orange/10 border border-orange/25">
               <span className="w-2 h-2 rounded-full bg-orange animate-pulse" />
               <span className="text-orange text-xs sm:text-sm font-semibold tracking-wide uppercase">
-                Arieli maternal initiative
+                Arieli Foundation Initiative
               </span>
             </div>
 
