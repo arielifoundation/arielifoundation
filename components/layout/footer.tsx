@@ -31,7 +31,7 @@ const footerLinks = {
     { name: 'Reports', href: '/#reports' },
   ],
   getInvolved: [
-    { name: 'Partner With Us', href: '/#partner' },
+    { name: 'Partner With Us', href: '/partner' },
     { name: 'Our Partners', href: '/#partners' },
     { name: 'Contact Us', href: '/#contact' },
   ],

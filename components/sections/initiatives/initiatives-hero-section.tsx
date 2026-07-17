@@ -72,7 +72,7 @@ export function InitiativesHeroSection() {
               Explore Initiatives
             </Link>
             <Link
-              href="/#partner"
+              href="/partner"
               className="w-full sm:w-auto inline-flex items-center justify-center px-8 py-4 bg-white/10 text-white font-semibold rounded-full border border-white/20 hover:bg-white/20 transition-all hover:-translate-y-0.5"
             >
               Partner With Us

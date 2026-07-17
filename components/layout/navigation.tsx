@@ -223,7 +223,7 @@ export function Navigation() {
             )}
 
             <Link
-              href="/#partner"
+              href="/partner"
               className="inline-flex items-center justify-center px-6 py-2.5 bg-gradient-to-r from-orange to-gold text-white font-medium rounded-full hover:shadow-lg hover:shadow-orange/30 transition-all duration-300 hover:-translate-y-0.5"
             >
               Partner With Us
@@ -313,7 +313,7 @@ export function Navigation() {
               ))}
               <div className="pt-4">
                 <Link
-                  href="/#partner"
+                  href="/partner"
                   onClick={() => setIsMobileMenuOpen(false)}
                   className="block w-full text-center px-6 py-3 bg-gradient-to-r from-orange to-gold text-white font-medium rounded-full hover:shadow-lg hover:shadow-orange/30 transition-all"
                 >

@@ -498,7 +498,7 @@ export default function ReportsPage() {
           </p>
           <div className="flex flex-wrap justify-center gap-3 lg:gap-4">
             <Link
-              href="/#partner"
+              href="/partner"
               className="inline-flex items-center gap-2 bg-white text-orange font-semibold px-6 lg:px-8 py-3 lg:py-4 rounded-full hover:bg-white/90 transition-colors text-sm lg:text-base"
             >
               Partner With Us
